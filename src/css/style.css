@@ -1,0 +1,396 @@
+body {
+	font-family: Franklin gothic medium, Arial, sans-serif;
+	/*width: 100%;*/
+	min-width: 1920px;
+	/*При 100% у меня съезжал текст меню. Если я всё правильно понял, это из-за того, что отступы и шрифт 
+	указаны в абсолютном значении, а ширина впроцентах. Поэому пришлось установить шарину страницы по ширене макета*/
+}
+
+nav {
+	width: 100%;
+	height: 60px;
+	background: #344051;
+	/*display: flex; 
+	align-items: center;*/
+	/*если верно понял - тоже выравнивает всё по горизонтали*/
+}
+.logo {
+	color: #fff;
+	font-size: 24px;
+	line-height: 60px;
+	padding-left: 388px;
+	float: left;
+}
+.menu {
+	float: left;
+	padding-left: 431px;
+}
+.menu li {
+	float: left;
+	line-height: 60px;
+	color: #fff;
+	margin-right: 40px;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+.main {
+	width: 100%;
+	height: 1020px;	
+	/*height: calc(100% - 60px);*/
+	/*Изображение маштабировалось классно! Но опять пришлось в абсолютных значениях,
+	т.к. при маштабировании текст опять уезжает. В процентах что ли отступы указывать?*/
+	background: url("../img/bg.jpg") no-repeat top/100% auto ;
+	/*Экспортировал сразу группу, чтобы не запариваться с расположение фото на фоне*/
+}
+.tile_content {
+	float: left;
+	margin: 432px 0px 0px 404px;
+	color: #2c384a;
+	text-align: center;
+}
+.tile_content h1 {
+	font-size: 79px;
+	font-weight: bold;
+}
+.tile_content h4 {
+	margin-top: 29px;
+	font-size: 21px;
+	color: #79818d;
+}
+.tile_content input {
+	height: 40px;
+	text-align: center;
+	padding: 0px 15px;
+	border: 0.5px solid #6d7682;
+	color: #6d7682;
+	border-radius: 5px;
+	font-size: 19px;
+	background: none;
+	margin: 55px 13px 0px 13px;
+}
+.adount_me {
+	height: 716px;
+	background-color: #fcfdfd;
+}
+.adount_me h2 {
+	text-align: center;
+	font-size: 34px;
+	text-transform: uppercase;
+	margin-top: 108px;
+	margin-bottom: 31px;
+}
+.adount_me hr{
+	margin: auto;
+}
+.adount_me>img {
+	margin: 59px 861px 22px 860px;
+}
+p {
+	font-family: calibri;
+	color: #3f495a;
+}
+.adount_me p {
+	margin-left: 595px;
+	font-size: 18px;
+	margin-bottom: 34px;
+}
+.adount_me a {
+	margin: 34px auto 97px 886px;
+}
+.my_skills {
+	height: 523px;
+	background: url("../img/bg_2.jpg") no-repeat top/100% auto;
+}
+.my_skills h2 {
+	padding-top: 107px;
+	text-align: center;
+	font-size: 34px;
+	margin-bottom: 31px;
+	text-transform: uppercase;
+}
+.my_skills hr {
+	margin: auto;
+	margin-bottom: 101px;
+}
+.skills ul {
+	display: flex; 
+	align-items: center;
+	margin-left: 416px;
+}
+.skills li {
+	width: 210px;
+	height: 166px;
+	display: block;
+	text-align: center;
+	margin-right: 84px;
+}
+.skills img {
+	margin-bottom: 34px;
+}
+.skills h4 {
+	margin-bottom: 14px;
+	color: #d17700;
+	font-size: 18;
+	font-family: Bahnschrift, sans-serif;
+}
+.skills p {
+	font-size: 16;
+}
+.keys {
+	height: 1080px;
+	background: url("../img/keys.jpg") no-repeat 50% 144px/60.88% auto;
+}
+.keys h2 h4 {
+	color: #38435;
+}
+.keys p {
+	color: #3f495a;
+}
+.keys h2 {
+	text-align: center;
+	font-size: 34px;
+	margin-top: 103px;
+	margin-bottom: 30px;
+}
+.keys hr{
+	margin: auto;
+	margin-bottom: 30px;
+}
+.keys>p {
+	text-align: center;
+	font-size: 16px;
+	margin-bottom: 668px;
+}
+.keys_info {
+	display: flex; 
+	align-items: top;
+	margin-left: 387px;
+}
+.info_left {
+	margin-right: 83px;
+}
+.info_left h4{
+	font-size: 25px;
+	margin-bottom: 14px;
+}
+.info_left p {
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+.info_left a {
+	margin-top: 22px;
+	display: block;
+	height: 50px;
+	width: 200px;
+	font-size: 20px;
+	border: 1px solid #63b5ae;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 50px;
+	background: #63b5ae;
+}
+.info_right h4 {
+	font-size: 25px;
+	margin-bottom: 6px;
+}
+.info_right p {
+	font-size: 20px;
+}
+.price h2 h3 p {
+	color: #1c2534;
+}
+.price h2 {
+	margin-top: 169px;
+	text-align: center;
+	font-size: 45px;
+	margin-bottom: 54px;
+}
+.price h3 {
+	font-size: 29px;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+.price form {
+	margin-left: 498px;
+}
+.price select {
+	margin-bottom: 45px;
+	display: block;
+	width: 891px;
+	height: 57px;
+	font-size: 16px;
+	color: #737373;
+	text-indent: 23px;
+	appearance: none;
+	background: url(../img/Стрелочка.png) #eee no-repeat 845px 50%;
+
+}
+.price option {
+	color: #737373;
+	font-size: 16px;
+}
+.price p {
+	margin-top: 23px;
+	font-size: 20px;
+	font-family: Franklin gothic medium, sans-serif;
+}
+.statistics h2 p{
+	color: #1c2534;
+}
+.statistics {
+	background: url("../img/bg_3.jpg") no-repeat top/100% auto;
+	height: 499px;
+	text-align: center;
+	margin-top: 187px;
+}
+.statistics>h2 {
+	padding-top: 103px; /*какой-то баг. Приходится использовать падинг вместо марджин.*/
+	text-transform: uppercase;
+	font-size: 33px;
+	margin-bottom: 32px;
+}
+.statistics hr {
+	margin: auto;
+	margin-bottom: 88px;
+}
+.statistics ul {
+	display: flex; 
+	align-items: center;
+	margin-left: 439px;
+}
+li h2 {
+	font-size: 37px;
+	font-family: Impact, sans-serif;
+	margin-top: 32px;
+	margin-bottom: 25px;
+}
+li p {
+	font-size: 16px;
+	font-family: Franklin gothic medium, sans-serif;
+}
+li {
+	margin-right: 152px;
+}
+.reviews {
+	height: 637px;
+	text-align: center;
+	color: #233042;
+}
+.reviews h2 {
+	font-size: 34px;
+	margin-top: 104px;
+	margin-bottom: 34px;
+}
+.reviews hr {
+	margin: auto;
+	margin-bottom: 58px;
+}
+.reviews img {
+	margin-bottom: 34px;
+}
+.reviews p {
+	font-size: 16px;
+	margin-bottom: 34px;
+}
+form {
+	margin-top: 14px; /*А как здесь сделать кружочек оранжевым и настроить растояние?*/
+}
+.contacts {
+	height: 808px;
+	text-align: center;
+	color: white;
+	background: url("../img/bg_4.jpg") no-repeat top/100% auto;
+}
+.contacts h2 {
+	padding-top: 105px;
+	font-size: 33px;
+	margin-bottom: 32px;
+}
+.contacts hr {
+	display: block;
+	margin: auto;
+	margin-bottom: 32px;
+}
+.contacts p {
+	color: white;
+	font-size: 16px;
+	margin-bottom: 45px;
+}
+.contacts ul {
+	display: flex; 
+	align-items: center;
+	margin-left: 653px;
+}
+.contacts li {
+	margin-right: 103px;
+	margin-bottom: 37px;
+}
+.send h3 {
+	font-size: 20px;
+	margin-bottom: 44px;
+}
+.input_up {
+	display: flex; 
+	align-items: center;
+	margin-left: 594px;
+}
+.input_up input {
+	display: block;
+	width: 352px;
+	height: 34px;
+	font-size: 16px;
+	text-indent: 12px;
+	color: #5d5d5e;
+	background: #d2d5db;
+	margin-right: 29px;
+	margin-bottom: 14px;
+}
+.send textarea {
+	display: block;
+	width: 732px;
+	height: 94px;
+	font-size: 16px;
+	text-indent: 12px;
+	color: #5d5d5e;
+	background: #d2d5db;
+	margin: auto;
+	margin-bottom: 28px;
+}
+.input_down input {
+	text-align: center;
+	padding: 15px 20px 14px 20px;
+	border: 1px solid white;
+	border-radius: 5px;
+	color: white;
+	font-size: 20px;
+	background: none;
+	margin-bottom: 70px;
+}
+.networks  {
+	display: flex; 
+	align-items: center;
+	margin-left: 753px;
+}
+.networks a {
+		margin-right: 51px;
+}
+.map {
+	height: 350px;
+	background: url(../img/карта.jpg) no-repeat top/100% auto;
+}
+.map h2 {
+	text-align: center;
+	padding-top: 160px;
+}
+footer {
+	height: 96px;
+	width: 100%;
+	background: #354051;
+	border-bottom: 5px solid #1e232c;
+}
+.copyright {
+	line-height: 96px;
+	font-size: 14px;
+	text-align: center;
+	font-family: Arial, sans-serif;
+}

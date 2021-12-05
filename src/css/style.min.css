@@ -1,0 +1,63 @@
+.preloader {
+    position: fixed;
+    left: 0;
+    Top: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/matrix.gif");
+    z-index: 999;
+    transition: 1s all;
+    opacity: 1;
+    visibility: visible;
+    -webkit-animation: load_2 0.5s 1.2s linear forwards;
+    -o-animation: load_2 0.5s 1.2s linear forwards;
+    -animation: load_2 0.5s 1.2s linear forwards;
+}
+.done {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader_bg {
+    height: 20px;
+    width: 400px;
+    background: white;
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 50%;
+}
+
+.loader {
+    height: 20px;
+    background: green;
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 50%;
+    -webkit-animation: load 1.2s linear forwards;
+    -o-animation: load 1.2s linear forwards;
+    -animation: load 1.2s linear forwards;
+}
+@keyframes load {
+    0% {
+    width: 0;
+    }
+    100% {
+    width: 400px;
+    }
+}
+
+/*Эта штука нужна, если делать без java скрипта. 
+Просто по времени будет исчезать прелодер*/
+/*@keyframes load_2 {
+    0% {
+    opacity: 1;
+    visibility: visible;
+    }
+    100% {
+    opacity: 0;
+    visibility: hidden;
+    }
+}*/
+
+
+

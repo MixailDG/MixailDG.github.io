@@ -1,4 +1,3 @@
-/*Шрифты*/
 @font-face {
 	font-family: 'Franklin gothic medium';
 	src: url('../fonts/Franklin Gothic Medium.eot');
@@ -9,9 +8,11 @@
 body {
 	font-family: Franklin gothic medium, Arial, sans-serif;
 	width: 100%;
+	/*min-width: 1920px;*/
+	/*При 100% у меня съезжал текст меню. Если я всё правильно понял, это из-за того, что отступы и шрифт 
+	указаны в абсолютном значении, а ширина впроцентах. Поэому пришлось установить шарину страницы по ширене макета*/
 }
 
-/*Навигация*/
 nav {
 	width: 100%;
 	height: 60px;
@@ -20,7 +21,7 @@ nav {
 	align-items: center;*/
 	/*если верно понял - тоже выравнивает всё по горизонтали*/
 	position: fixed;
-	z-index: 2;
+	z-index: 1;
 }
 .logo {
 	color: #fff;
@@ -99,24 +100,19 @@ nav {
 	animation-delay: 2.0s;
 
 }
-.white_btn:visited {
-	color: white;
-}
-.white_btn {
-	color: white;
-}
 
-/*Главная*/
 .main {
 	width: 100%;
-	height: 100vh;
-	/*Почему не работает 100%?	*/
-	background: url(../img/boy.png) 90% 100%/auto 85% no-repeat, url(../img/bg_1.jpg) center/cover no-repeat;
+	height: 1080px;	
+	/*height: 100%;*/
+	/*Изображение маштабировалось классно! Но опять пришлось в абсолютных значениях,
+	т.к. при маштабировании текст опять уезжает. В процентах что ли отступы указывать?*/
+	background: url("../img/bg.jpg") no-repeat top/100% auto ;
+	/*Экспортировал сразу группу, чтобы не запариваться с расположение фото на фоне*/
 }
 .tile_content {
-	margin-top: 18%; 
-	width: 100%;
 	float: left;
+	margin: 432px 0px 0px 404px;
 	color: #2c384a;
 	text-align: center;
 	opacity: 0;
@@ -131,12 +127,12 @@ nav {
 	}
 	100% {
 		opacity: 1;
-		margin-left: 0px;
+		margin-left: 404px;
 	}
 }
 .tile_content h1 {
 	font-size: 79px;
-
+	font-weight: bold;
 }
 .tile_content h4 {
 	margin-top: 29px;
@@ -163,40 +159,10 @@ nav {
 .tile_content input:active {
 	transform: scale(1.1);
 }
-@media (max-width: 992px) {
-	.tile_content, .tile_content h4, .tile_content input {
-		color: white;
-		position: relative;
-		z-index: 1;
-	}
-	.tile_content input {
-		border: 2px solid white;
-	}
-	.main {
-		position: relative;
-		background: url(../img/boy.png) center 100%/auto 85% no-repeat, url(../img/bg_1.jpg) center/cover no-repeat;
-	}
-	.main:after {
-		content: "";
-		bottom: 0;
-		top: 0;
-		left: 0;
-		right: 0;
-		position: absolute;
-		background: rgba(0, 0, 0, 0.4);
-	}
-}
-@media (max-width: 376px) {
-	.tile_content {
-		transform: scale(0.6);
-	}
-}
 
-/*Обо мне*/
 .adount_me {
 	height: 716px;
 	background-color: #fcfdfd;
-	text-align: center;
 }
 .adount_me h2 {
 	text-align: center;
@@ -207,42 +173,72 @@ nav {
 }
 .adount_me hr{
 	margin: auto;
-	color: #eb7800;
-	opacity: 1;
+}
+hr {
+	-webkit-animation: line 1.5s ease 2.4s infinite alternate;
+	-o-animation: line 1.5s ease 2.4s infinite alternate;
+	animation: line 1.5s ease 2.4s infinite alternate;
+}
+@keyframes line {
+	0% {width: 72px;}
+	100% {width: 144px;}
 }
 
-.img_1 {
-	margin-top: 59px;
-	margin-bottom: 22px;
+.adount_me>img {
+	margin: 59px 861px 22px 860px;
+	animation: tada 2s infinite;
+}
+@keyframes tada {
+	from {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+
+	10%,
+	20% {
+		-webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+		transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+	}
+
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+		transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+	}
+
+	40%,
+	60%,
+	80% {
+		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+		transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+	}
+
+	to {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
 }
 p {
 	font-family: calibri;
 	color: #3f495a;
 }
 .adount_me p {
+	margin-left: 595px;
 	font-size: 18px;
 	margin-bottom: 34px;
-
 }
 .adount_me a {
-	display: inline-block;
-	width: 157px;
-	height: 34px;
-	margin-bottom: 97px;
+	display: block;
+	margin: 34px auto 97px 886px;
 }
-.adount_me a:active {
+.adount_me img:active {
 	transform: scale(1.1);
 }
-@media (max-width: 1001px) {
-	.adount_me{
-		height: 100%;
-	}
-}
-
-/*Что я умею*/
 .my_skills {
 	height: 523px;
-	background: url("../img/bg_2.jpg") center/cover no-repeat;
+	background: url("../img/bg_2.jpg") no-repeat top/100% auto;
 }
 .my_skills h2 {
 	padding-top: 107px;
@@ -254,34 +250,18 @@ p {
 .my_skills hr {
 	margin: auto;
 	margin-bottom: 101px;
-	color: #eb7800;
-	opacity: 1;
 }
 .skills ul {
-	padding: 0;
 	display: flex; 
 	align-items: center;
-	justify-content: space-around;
-}
-@media (max-width: 1001px) {
-	.skills ul {
-		flex-wrap: wrap;
-	}
-	.my_skills{
-		height: 100%;
-	}
-	.skills li{
-		margin-bottom: 50px;
-	}
+	margin-left: 416px;
 }
 .skills li {
 	width: 210px;
 	height: 166px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	display: block;
 	text-align: center;
-/*Почему при встривании в один столбец элементы идут не по центру?*/
+	margin-right: 84px;
 }
 .skills img {
 	margin-bottom: 34px;
@@ -323,233 +303,6 @@ p {
 		-webkit-transform: rotate3d(0, 0, 1, 0deg);
 		transform: rotate3d(0, 0, 1, 0deg);
 	}
-}
-
-/*Кейсы*/
-.keys {
-	height: 100%;
-	/*max-height: 1080px;*/
-}
-.keys h2 h4 {
-	color: #38435;
-}
-.keys p {
-	color: #3f495a;
-}
-.keys h2 {
-	text-align: center;
-	font-size: 34px;
-	margin-top: 103px;
-	margin-bottom: 30px;
-}
-.keys hr{
-	margin: auto;
-	margin-bottom: 30px;
-	color: #eb7800;
-	opacity: 1;
-}
-.p_top {
-	text-align: center;
-	font-size: 16px;
-}
-.carousel-control-prev-icon {
-	background-image: url(../img/left.svg);
-	height: 40px;
-	width: 28px;
-}
-.carousel-control-next-icon {
-	background-image: url(../img/right.svg);
-		height: 40px;
-	width: 28px;
-}
-.info_left h4{
-	font-size: 25px;
-	margin-bottom: 14px;
-}
-.info_left p {
-	font-size: 16px;
-	margin-bottom: 15px;
-}
-.info_left a {
-	margin-top: 22px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 50px;
-	max-width: 200px;
-	font-size: 16px;
-	border: 1px solid #63b5ae;
-	border-radius: 5px;
-	background: #63b5ae;
-	text-decoration: none;
-	-webkit-animation: heartBeat 3s infinite;
-	-o-animation: heartBeat 3s  infinite;
-	animation: heartBeat 3s infinite;
-}
-@keyframes heartBeat {
-	0% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-	}
-
-	14% {
-		-webkit-transform: scale(1.1);
-		transform: scale(1.1);
-	}
-
-	28% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-	}
-
-	42% {
-		-webkit-transform: scale(1.1);
-		transform: scale(1.1);
-	}
-
-	70% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-	}
-}
-.info_left a:hover {
-	background: #db8656;
-	color: white;
-}
-.info_right h4 {
-	font-size: 25px;
-	margin-bottom: 6px;
-}
-.info_right p {
-	font-size: 20px;
-}
-@media (max-width: 563px) {
-	.info_right p {
-		font-size: 16px;
-	}
-	.info_right h4 {
-	font-size: 20px;
-	}
-	.info_left h4 {
-	font-size: 16px;
-	}
-	.keys {
-	height: 100%;
-	}
-	.info_right p {
-		margin-bottom: -63px;
-	}
-}
-
-/*Прайс*/
-.price h2 h3 p {
-	color: #1c2534;
-}
-.price h2 {
-	margin-top: 37px;
-	font-size: 45px;
-	margin-bottom: 54px;
-	text-align: center;
-}
-.price h3 {
-	font-size: 29px;
-	text-transform: uppercase;
-	margin-bottom: 20px;
-}
-.price_1 {
-	margin-top: 103px;
-	/*border: 2px solid black;*/
-	box-shadow: 4px 4px 10px 10px rgba(0,0,0,0.18);
-	display: flex;
-	justify-items: center;
-	align-items: center;
-	flex-direction: column;
-}
-.price form {
-	width: 91%;
-}
-.price select {
-	margin-bottom: 45px;
-	display: block;
-	width: 100%;
-	height: 57px;
-	font-size: 16px;
-	color: #737373;
-	text-indent: 23px;
-	appearance: none;
-	background: url(../img/стрелочка.png) #eee no-repeat 97% 50%;
-}
-.price select:focus {
-	border: 3px solid #db8656;
-} 
-.price option {
-	color: #737373;
-	font-size: 16px;
-}
-.price p {
-	margin-top: 23px;
-	font-size: 20px;
-	font-family: Franklin gothic medium, sans-serif;
-	margin-bottom: 0;
-}
-.price input {
-	margin-top: 37px;
-	height: 44px;
-	max-width: 201px;
-	margin-bottom: 37px;
-	font-size: 20px;
-	color: white;
-	border: 1px solid #00b6af;
-	border-radius: 5px;
-	background-color: #00b6af;
-	justify-self: center;
-}
-@media (max-width: 500px) {
-.price h2 {
-	font-size: 35px;
-}
-.price h3 {
-	font-size: 20px;
-}
-}
-
-/*Немного статистики*/
-.statistics h2 p{
-	color: #1c2534;
-}
-.statistics {
-	background: url("../img/bg_3.jpg") center/cover no-repeat;
-	/*height: 499px;*/
-	height: 100%;
-	text-align: center;
-	margin-top: 32px;
-}
-.statistics .h2_top {
-	padding-top: 103px; /*какой-то баг. Приходится использовать падинг вместо марджин.*/
-	text-transform: uppercase;
-	font-size: 33px;
-	margin-bottom: 32px;
-}
-.statistics hr {
-	margin: auto;
-	margin-bottom: 88px;
-	color: #eb7800;
-	opacity: 1;
-}
-.statistics ul {
-	display: flex; 
-	align-items: center;
-	justify-content: space-around;
-	flex-wrap: wrap;
-	padding: 0;
-}
-.statistics li {
-	min-width: 150px;
-}
-.statistics img {
-	-webkit-animation: flip 4s linear infinite ;
-	-o-animation: flip 4s linear infinite ;
-	animation: flip 4s linear infinite ;
 }
 @keyframes flip {
 	from {
@@ -593,21 +346,214 @@ p {
 		animation-timing-function: ease-in;
 	}
 }
-.statistics li h2 {
+
+.keys {
+	height: 1080px;
+	background: url("../img/keys.jpg") no-repeat 50% 144px/60.88% auto;
+}
+.keys h2 h4 {
+	color: #38435;
+}
+.keys p {
+	color: #3f495a;
+}
+.keys h2 {
+	text-align: center;
+	font-size: 34px;
+	margin-top: 103px;
+	margin-bottom: 30px;
+}
+.keys hr{
+	margin: auto;
+	margin-bottom: 30px;
+}
+.keys>p {
+	text-align: center;
+	font-size: 16px;
+	margin-bottom: 668px;
+}
+.keys_info {
+	display: flex; 
+	align-items: top;
+	margin-left: 387px;
+}
+.info_left {
+	margin-right: 83px;
+}
+.info_left h4{
+	font-size: 25px;
+	margin-bottom: 14px;
+}
+.info_left p {
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+.info_left a {
+	margin-top: 22px;
+	display: block;
+	height: 50px;
+	width: 200px;
+	font-size: 20px;
+	border: 1px solid #63b5ae;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 50px;
+	background: #63b5ae;
+	-webkit-animation: heartBeat 3s infinite;
+	-o-animation: heartBeat 3s  infinite;
+	animation: heartBeat 3s infinite;
+}
+@keyframes heartBeat {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+
+	14% {
+		-webkit-transform: scale(1.3);
+		transform: scale(1.3);
+	}
+
+	28% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+
+	42% {
+		-webkit-transform: scale(1.3);
+		transform: scale(1.3);
+	}
+
+	70% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+.info_left a:hover {
+	background: #db8656;
+	color: white;
+}
+.info_right h4 {
+	font-size: 25px;
+	margin-bottom: 6px;
+}
+.info_right p {
+	font-size: 20px;
+	width: 849px;
+}
+.info_right h4 {
+	-webkit-animation: lightSpeedInLeft 2s infinite;
+	-o-animation: lightSpeedInLeft 2s infinite;
+	animation: lightSpeedInLeft 2s infinite;
+}
+
+@keyframes lightSpeedInLeft {
+	from {
+		-webkit-transform: translate3d(-20%, 0, 0) skewX(30deg);
+		transform: translate3d(-20%, 0, 0) skewX(30deg);
+		opacity: 0;
+	}
+
+	60% {
+		-webkit-transform: skewX(-20deg) translate3d(20%, 0, 0);
+		transform: skewX(-20deg) translate3d(20%, 0, 0);
+		opacity: 1;
+	}
+
+	80% {
+		-webkit-transform: skewX(5deg);
+		transform: skewX(5deg);
+	}
+
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+}
+.price h2 h3 p {
+	color: #1c2534;
+}
+.price h2 {
+	margin-top: 169px;
+	text-align: center;
+	font-size: 45px;
+	margin-bottom: 54px;
+}
+.price h3 {
+	font-size: 29px;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+.price form {
+	margin-left: 498px;
+}
+.price select {
+	margin-bottom: 45px;
+	display: block;
+	width: 891px;
+	height: 57px;
+	font-size: 16px;
+	color: #737373;
+	text-indent: 23px;
+	appearance: none;
+	background: url(../img/стрелочка.png) #eee no-repeat 845px 50%;
+}
+.price select:focus {
+	border: 3px solid #db8656;
+} 
+.price option {
+	color: #737373;
+	font-size: 16px;
+}
+.price p {
+	margin-top: 23px;
+	font-size: 20px;
+	font-family: Franklin gothic medium, sans-serif;
+}
+.statistics h2 p{
+	color: #1c2534;
+}
+.statistics {
+	background: url("../img/bg_3.jpg") no-repeat top/100% auto;
+	height: 499px;
+	text-align: center;
+	margin-top: 187px;
+}
+.statistics>h2 {
+	padding-top: 103px; /*какой-то баг. Приходится использовать падинг вместо марджин.*/
+	text-transform: uppercase;
+	font-size: 33px;
+	margin-bottom: 32px;
+}
+.statistics hr {
+	margin: auto;
+	margin-bottom: 88px;
+}
+.statistics ul {
+	display: flex; 
+	align-items: center;
+	margin-left: 439px;
+}
+.statistics img {
+	-webkit-animation: flip 4s linear infinite ;
+	-o-animation: flip 4s linear infinite ;
+	animation: flip 4s linear infinite ;
+}
+li h2 {
 	font-size: 37px;
 	font-family: Impact, sans-serif;
 	margin-top: 32px;
 	margin-bottom: 25px;
 }
-.statistics li p {
+li p {
 	font-size: 16px;
 	font-family: Franklin gothic medium, sans-serif;
-	margin-bottom: 103px;
 }
-
-/*Отзывы*/
+li {
+	margin-right: 152px;
+}
 .reviews {
-	height: 100%;
+	height: 637px;
 	text-align: center;
 	color: #233042;
 }
@@ -619,30 +565,34 @@ p {
 .reviews hr {
 	margin: auto;
 	margin-bottom: 58px;
-	color: #eb7800;
-	opacity: 1;
 }
 .reviews img {
 	margin-bottom: 34px;
+	transform: rotate(0deg);
+	-webkit-animation: rotate 3s cubic-bezier(1,-0.93,0,1.89) infinite ;
+	-o-animation: rotate 3s cubic-bezier(1,-0.93,0,1.89) infinite ;
+	animation: rotate 3s cubic-bezier(1,-0.93,0,1.89) infinite ;
 }
-
+@keyframes rotate {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}
 .reviews p {
 	font-size: 16px;
 	margin-bottom: 34px;
 }
-.reviews form {
+form {
 	margin-top: 14px; /*А как здесь сделать кружочек оранжевым и настроить растояние?*/
-	margin-bottom: 91px;
 }
 
-/*Контакты*/
 .contacts {
-	/*height: 808px;*/
-	height: 100%;
+	height: 808px;
 	text-align: center;
 	color: white;
-	background: url("../img/bg_4_2.jpg") center/cover no-repeat;
+	/*background: url("../img/bg_4.jpg") no-repeat top/100% auto;*/
+	background: url("../img/bg_4_2.jpg") no-repeat top/100% auto;
 	background-attachment: fixed;
+
 	position: relative;
 }
 .contacts h2 {
@@ -651,10 +601,9 @@ p {
 	margin-bottom: 32px;
 }
 .contacts hr {
+	display: block;
 	margin: auto;
 	margin-bottom: 32px;
-	color: #eb7800;
-	opacity: 1;
 }
 .contacts p {
 	color: white;
@@ -664,15 +613,11 @@ p {
 .contacts ul {
 	display: flex; 
 	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-	padding: 0;
-	margin-left: 7.92%;
+	margin-left: 653px;
 }
 .contacts li {
-	min-width: 154px;
+	margin-right: 103px;
 	margin-bottom: 37px;
-	margin-right: 7.92%;
 }
 .contacts img {
 	margin-bottom: 12px;
@@ -681,19 +626,14 @@ p {
 	font-size: 20px;
 	margin-bottom: 44px;
 }
-
 .input_up {
 	display: flex; 
 	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-	margin-left: 29px;
+	margin-left: 594px;
 }
 .input_up input {
-	width: 100%;
 	display: block;
-	max-width: 352px;
-	/*min-width: 300px;*/
+	width: 352px;
 	height: 34px;
 	font-size: 16px;
 	text-indent: 12px;
@@ -704,9 +644,7 @@ p {
 }
 .send textarea {
 	display: block;
-	width: 100%;
-	max-width: 732px;
-	/*min-width: 300px;*/
+	width: 732px;
 	height: 94px;
 	font-size: 16px;
 	text-indent: 12px;
@@ -714,15 +652,6 @@ p {
 	background: #d2d5db;
 	margin: auto;
 	margin-bottom: 28px;
-}
-@media (max-width: 992px) {
-	.input_up input {
-		max-width: 732px;
-		margin-right: 0;
-	}
-	.input_up {
-		margin-left: 0;
-	}
 }
 .send textarea:focus {
 	border: 2px solid #d17700;
@@ -745,21 +674,37 @@ p {
 .send input:focus {
 	border: 2px solid #d17700;
 }
-.networks {
+.networks  {
 	display: flex; 
 	align-items: center;
-	justify-content: center;
+	margin-left: 753px;
 }
-.networks_btn {
-	display: flex;
-	width: 100%;
-	max-width: 420px;
-	justify-content: space-between;
-	margin-bottom: 60px;
+.networks a {
+	margin-right: 51px;
+}
+.networks_left img {
+	-webkit-animation: rotate_2 4s infinite;
+	-o-animation: rotate_2 4s infinite;
+	animation: rotate_2 4s infinite;
+}
+.networks_right img {
+	-webkit-animation: rotate_-2 4s infinite;
+	-o-animation: rotate_-2 4s infinite;
+	animation: rotate_-2 4s infinite;
+}
+@keyframes rotate_2 {
+	0% {transform: rotate(0deg);}
+	50% {transform: scale(1.2); transform: rotate(360deg);}
+	100% {transform: rotate(-0deg);}
+}
+@keyframes rotate_-2 {
+	0% {transform: rotate(0deg);}
+	50% {transform: scale(1.2); transform: rotate(-360deg);}
+	100% {transform: rotate(0deg);}
 }
 .map {
 	height: 350px;
-	background: url(../img/карта.jpg) center/cover no-repeat;
+	background: url(../img/карта.jpg) no-repeat top/100% auto;
 }
 .map h2 {
 	text-align: center;
@@ -770,14 +715,47 @@ footer {
 	width: 100%;
 	background: #354051;
 	border-bottom: 5px solid #1e232c;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 .copyright {
-	display: block;
+	line-height: 96px;
 	font-size: 14px;
 	text-align: center;
 	font-family: Arial, sans-serif;
 	color: white;
+}
+.copyright span {
+	display: block;
+	margin: auto;
+	width: 500px;
+	-webkit-animation: lightSpeedInLeft_2 4s infinite alternate;
+	-o-animation: lightSpeedInLeft_2 4s infinite alternate;
+	animation: lightSpeedInLeft_2 4s infinite alternate;
+}
+
+@keyframes lightSpeedInLeft_2 {
+	from {
+		-webkit-transform: translate3d(-300px, 0, 0) skewX(30deg);
+		transform: translate3d(-300px, 0, 0) skewX(30deg);
+		opacity: 0;
+	}
+
+	50% {
+		-webkit-transform: skewX(-20deg) translate3d(300px, 0, 0);
+		transform: skewX(-20deg) translate3d(300px, 0, 0);
+		opacity: 1;
+	}
+	51% {
+		-webkit-transform: skewX(20deg);
+		transform: skewX(20deg);
+	}
+
+	80% {
+		-webkit-transform: skewX(-5deg);
+		transform: skewX(-5deg);
+	}
+
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
 }

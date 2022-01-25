@@ -1,3 +1,60 @@
+/*Прелоадер*/
+.preloader {
+	position: fixed;
+	left: 0;
+	Top: 0;
+	width: 100%;
+	height: 100%;
+	background: url("../img/matrix.gif");
+	z-index: 999;
+	transition: 1s all;
+	opacity: 1;
+	visibility: visible;
+	-webkit-animation: load_2 0.5s 1s linear forwards;
+	-o-animation: load_2 0.5s 1s linear forwards;
+	-animation: load_2 0.5s 1s linear forwards;
+}
+@media handheld {
+	.preloader {
+		background: rgb(125,126,125); /* Old browsers */
+		background: -moz-linear-gradient(-45deg, rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(-45deg, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(135deg, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	}
+}
+.done {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.loader_bg {
+	height: 20px;
+	width: 400px;
+	background: white;
+	position: absolute;
+	left: calc(50% - 200px);
+	top: 50%;
+}
+
+.loader {
+	height: 20px;
+	background: green;
+	position: absolute;
+	left: calc(50% - 200px);
+	top: 50%;
+	-webkit-animation: load 1s linear forwards;
+	-o-animation: load 1s linear forwards;
+	-animation: load 1s linear forwards;
+}
+@keyframes load {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 400px;
+	}
+}
+
 /*Шрифты*/
 @font-face {
 	font-family: 'Franklin gothic medium';
@@ -40,7 +97,6 @@ nav {
 	float: left;
 	line-height: 60px;
 	color: white;
-	margin-right: 40px;
 	font-size: 14px;
 	text-transform: uppercase;
 	-webkit-animation: topshift 0.4s ease forwards;
@@ -49,6 +105,7 @@ nav {
 	opacity: 0;
 }
 .menu li a {
+	margin-right: 40px;
 	color: white;
 	text-decoration: none;
 	transition: all 0.1s;
@@ -63,6 +120,10 @@ nav {
 	transform: scale(1.1);
 }
 .menu li a:active {
+	transform: scale(1.1);
+}
+nav .menu .active {
+	color: #f39314;
 	transform: scale(1.1);
 }
 
@@ -235,6 +296,31 @@ p {
 		height: 100%;
 	}
 }
+.adount_me .show_anime {
+	-webkit-animation: backInLeft 1.5s ease  ;
+	-o-animation: backInLeft 1.5s ease  ;
+	animation: backInLeft 1.5s ease  ;
+}
+
+@keyframes backInLeft {
+	0% {
+		-webkit-transform: translateX(-2000px) scale(0.7);
+		transform: translateX(-2000px) scale(0.7);
+		opacity: 0.7;
+	}
+
+	80% {
+		-webkit-transform: translateX(0px) scale(0.7);
+		transform: translateX(0px) scale(0.7);
+		opacity: 0.7;
+	}
+
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 1;
+	}
+}
 
 /*Что я умею*/
 .my_skills {
@@ -277,50 +363,48 @@ p {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	text-align: center;
-/*Почему при встривании в один столбец элементы идут не по центру?*/
-}
-.skills img {
-	margin-bottom: 34px;
-}
-.skills h4 {
-	margin-bottom: 14px;
-	color: #d17700;
-	font-size: 18;
-	font-family: Bahnschrift, sans-serif;
-}
-.skills p {
-	font-size: 16;
-}
-.my_skills img:hover {
-	animation: swing 1s forwards;
-}
-@keyframes swing {
-	20% {
-		-webkit-transform: rotate3d(0, 0, 1, 15deg);
-		transform: rotate3d(0, 0, 1, 15deg);
+	text-align: center;}
+	.skills img {
+		margin-bottom: 34px;
 	}
+	.skills h4 {
+		margin-bottom: 14px;
+		color: #d17700;
+		font-size: 18;
+		font-family: Bahnschrift, sans-serif;
+	}
+	.skills p {
+		font-size: 16;
+	}
+	.skills .el_anime.show_anime {
+		animation: swing 1s backwards;
+	}
+	@keyframes swing {
+		20% {
+			-webkit-transform: rotate3d(0, 0, 1, 15deg);
+			transform: rotate3d(0, 0, 1, 15deg);
+		}
 
-	40% {
-		-webkit-transform: rotate3d(0, 0, 1, -10deg);
-		transform: rotate3d(0, 0, 1, -10deg);
-	}
+		40% {
+			-webkit-transform: rotate3d(0, 0, 1, -10deg);
+			transform: rotate3d(0, 0, 1, -10deg);
+		}
 
-	60% {
-		-webkit-transform: rotate3d(0, 0, 1, 5deg);
-		transform: rotate3d(0, 0, 1, 5deg);
-	}
+		60% {
+			-webkit-transform: rotate3d(0, 0, 1, 5deg);
+			transform: rotate3d(0, 0, 1, 5deg);
+		}
 
-	80% {
-		-webkit-transform: rotate3d(0, 0, 1, -5deg);
-		transform: rotate3d(0, 0, 1, -5deg);
-	}
+		80% {
+			-webkit-transform: rotate3d(0, 0, 1, -5deg);
+			transform: rotate3d(0, 0, 1, -5deg);
+		}
 
-	to {
-		-webkit-transform: rotate3d(0, 0, 1, 0deg);
-		transform: rotate3d(0, 0, 1, 0deg);
+		to {
+			-webkit-transform: rotate3d(0, 0, 1, 0deg);
+			transform: rotate3d(0, 0, 1, 0deg);
+		}
 	}
-}
 
 /*Кейсы*/
 .keys {
@@ -356,8 +440,13 @@ p {
 }
 .carousel-control-next-icon {
 	background-image: url(../img/right.svg);
-		height: 40px;
+	height: 40px;
 	width: 28px;
+}
+.keys .carousel-item {
+	width: 100%;
+	height: auto;
+	text-align: center;
 }
 .info_left h4{
 	font-size: 25px;
@@ -425,13 +514,13 @@ p {
 		font-size: 16px;
 	}
 	.info_right h4 {
-	font-size: 20px;
+		font-size: 20px;
 	}
 	.info_left h4 {
-	font-size: 16px;
+		font-size: 16px;
 	}
 	.keys {
-	height: 100%;
+		height: 100%;
 	}
 	.info_right p {
 		margin-bottom: -63px;
@@ -501,13 +590,16 @@ p {
 	background-color: #00b6af;
 	justify-self: center;
 }
+.price a {
+	width: 201px;
+}
 @media (max-width: 500px) {
-.price h2 {
-	font-size: 35px;
-}
-.price h3 {
-	font-size: 20px;
-}
+	.price h2 {
+		font-size: 35px;
+	}
+	.price h3 {
+		font-size: 20px;
+	}
 }
 
 /*Немного статистики*/
@@ -543,10 +635,10 @@ p {
 .statistics li {
 	min-width: 150px;
 }
-.statistics img {
-	-webkit-animation: flip 4s linear infinite ;
-	-o-animation: flip 4s linear infinite ;
-	animation: flip 4s linear infinite ;
+.statistics .el_anime.show_anime {
+	-webkit-animation: flip 4s linear 1 ;
+	-o-animation: flip 4s linear 1 ;
+	animation: flip 4s linear 1 ;
 }
 @keyframes flip {
 	from {
@@ -619,22 +711,39 @@ p {
 	color: #eb7800;
 	opacity: 1;
 }
-.reviews img {
-	margin-bottom: 34px;
-}
 
 .reviews p {
 	font-size: 16px;
 	margin-bottom: 34px;
 }
-.reviews form {
-	margin-top: 14px; /*А как здесь сделать кружочек оранжевым и настроить растояние?*/
+.slider {
 	margin-bottom: 91px;
+}
+
+.slider img {
+	display: block;
+	margin: auto;
+	margin-bottom: 34px;
+}
+.slick-dots {
+	display: flex;
+	align-items: center;
+}
+
+.slick-dots li {
+	background-color: #cfd3d8;
+	border-radius: 50%;
+	margin-top: 14px;
+	transform: scale(0.6);
+}
+.slick-dots .slick-active {
+	background-color: #e46500;
 }
 
 /*Контакты*/
 .contacts {
 	/*height: 808px;*/
+	margin-top: 91px;
 	height: 100%;
 	text-align: center;
 	color: white;
@@ -778,3 +887,64 @@ footer {
 	font-family: Arial, sans-serif;
 	color: white;
 }
+
+/*Скрытые элементы*/
+.popup_form {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.popup_form h3 {
+	color: white;
+margin-top: 40px;
+margin-bottom: 20px;
+}
+.popup_form hr {
+		margin: auto;
+	color: #eb7800;
+	opacity: 1;
+	margin-bottom: 30px;
+
+}
+.popup_window {
+	font-size: 16px;
+	width: 60%;
+background: #17225c;
+border-radius: 20px;
+}
+.popup_window input {
+	background: #d1d6dd;
+	height: 25px;
+	margin-bottom: 20px;
+	min-width: 31.5%;
+	border-radius: 5px;
+}
+.popup_up {
+	text-align: center;
+	margin: auto;
+	/*margin-left: 10px;*/
+	display: flex;
+	justify-content: space-between;
+}
+.popup_window textarea {
+	background: #d1d6dd;
+	border-radius: 5px;
+}
+.popup_down input {
+	border-radius: 5px;
+	height: 30px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	min-width: 120px;
+}	
+.popup_down input:hover {
+	background-color: #eb7800;
+	color: white;
+	transform: scale(1.1);
+}
+.mfp-close-btn-in .mfp-close {
+    color: white;
+    transform: scale(1.2);
+}	

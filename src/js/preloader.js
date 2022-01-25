@@ -4,7 +4,7 @@ document.body.onload = function (argument) {
         if ( !preloader.classList.contains('done') ) {
             preloader.classList.add('done')
         }
-    }, 1000);
+    }, 700);
 }
 
 
